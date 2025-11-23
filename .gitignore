@@ -208,6 +208,5 @@ __marimo__/
 
 # Additional .gitignore
 *.pyc
-.env
 *.db
 .DS_Store
