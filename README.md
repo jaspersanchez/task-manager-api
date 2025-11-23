@@ -3,11 +3,13 @@
 Multi-tenant task management API built with FastAPI, PostgreSQL, and Docker.
 
 ## Features (Planned)
-- User authentication with JWT
-- Create read, update, delete tasks
-- Organize tasks by projects
-- RESTful API design
-- Docker deployment
+- ✅ User CRUD operations (Create, Read, Delete)
+- ✅ PostgreSQL database with SQLAlchemy ORM
+- ✅ Docker containerized database
+- 🔄 User authentication with JWT (next)
+- 🔄 Task management
+- 🔄 Organize tasks by projects
+
 
 ## Tech Stack
 - **Backend:** FastAPI (Python)
@@ -19,6 +21,7 @@ Multi-tenant task management API built with FastAPI, PostgreSQL, and Docker.
 
 ### Prerequisites
 - Python 3.9+
+- Docker & Docker Compose
 - pip
 
 ### Installation
@@ -40,7 +43,17 @@ source venv/bin/activate # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Run the server
+4. Start PostgreSQL with Docker
+```bash
+docker-compose up -d
+```
+
+5. Create database tables
+```bash
+python -m app.core.init_db
+```
+
+6. Run the server
 ```bash
 uvicorn app.main:app --reload
 ```
@@ -50,10 +63,12 @@ uvicorn app.main:app --reload
 ## Development Progress
 - [x] Initial FastAPI setup
 - [x] Basic endpoints
-- [ ] User authentication
-- [ ] Database models
+- [x] PostgreSQL database setup
+- [x] User model and CRUD endpoints
+- [x] Docker Compose for database
+- [ ] User authentication (JWT)
 - [ ] Task CRUD operations
-- [ ] Docker deployment
+- [ ] Full Docker deployment
 
 ## Author
 Jasper A. Sanchez
