@@ -43,22 +43,31 @@ source venv/bin/activate # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Start PostgreSQL with Docker
+4. Setup environment variables
+```bash
+# Create .env file
+DATABASE_URL=postgresql://username:password@localhost:5432/taskmanager
+SECRET_KEY=your-secret-key-here-generate-with-openssl-rand-hex-32
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+
+5. Start PostgreSQL with Docker
 ```bash
 docker-compose up -d
 ```
 
-5. Create database tables
+6. Create database tables
 ```bash
 python -m app.core.init_db
 ```
 
-6. Run the server
+7. Run the server
 ```bash
 uvicorn app.main:app --reload
 ```
 
-5. Visit http://127.0.0.1:8000/docs for API documentation
+8. Visit http://127.0.0.1:8000/docs for API documentation
 
 ## Development Progress
 - [x] Initial FastAPI setup
