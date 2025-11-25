@@ -1,6 +1,7 @@
 # app/core/init_db.py
 from app.core.database import Base, engine
 from app.models.user import User
+from app.models.task import Task  # Tasks
 
 
 def init_db():
